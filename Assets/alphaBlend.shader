@@ -34,5 +34,25 @@ Shader "Custom/alphaBlend"
         }
         ENDCG
     }
-    FallBack "Diffuse"
+
+    // FallBack "Diffuse"
+    FallBack "Legacy Shaders/Tranparent/VertexLit" // Plane(바닥판)을 추가할 시 드리우는 Quad 의 그림자를 제거하기 위해 FallBack 셰이더를 변경함.
 }
+
+/*
+    FallBack 쉐이더
+
+    원래 FallBack 에 지정하는 쉐이더는
+    현재 쉐이더를 표현하는 것에 실패할 경우,
+    대체해서 사용할 '예비용 쉐이더'를 지정하는 키워드이지만,
+
+    위에서 처럼
+    '그림자'에 관련한 쉐이더를 지정할 때에도
+    FallBack 에 지정된 예비용 쉐이더가 적용되는 것을
+    확인할 수 있음.
+
+    그래서 위에서 처럼 유니티 내장 쉐이더 중에서
+    Legacy Shaders/Transparent/... 디렉토리에 저장된 쉐이더를
+    아무거나 가져와서 그림자에 적용하면
+    그림자가 사라지게 할 수 있음.
+*/
